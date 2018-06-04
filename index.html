@@ -206,6 +206,24 @@ var arctic = L.icon({
     shadowUrl: 'images/icons/water2.png',
     shadowSize: [1,1],
     shadowAnchor: [0,0]
+	}),
+	mrbIcon = L.icon({
+    iconUrl: 'images/icons/Mercenary Review Board.png',
+    iconSize: [48, 48],
+    iconAnchor: [24, 24],
+    popupAnchor: [0, 0],
+    shadowUrl: 'images/icons/Mercenary Review Board.png',
+    shadowSize: [1,1],
+    shadowAnchor: [0,0]
+    }),
+	playerIcon = L.icon({
+    iconUrl: 'images/icons/Player Default.png',
+    iconSize: [32, 32],
+    iconAnchor: [16, 16],
+    popupAnchor: [0, 0],
+    shadowUrl: 'images/icons/Player Default.png',
+    shadowSize: [1,1],
+    shadowAnchor: [0,0]
 });
 
 // map object
@@ -240,7 +258,20 @@ map.setMaxBounds(new L.LatLngBounds(
 //	.openOn(map);
 //});
 
+// welcome popup
 
+var sys_welcome = L.popup()
+    .setLatLng([0, 0])
+    .setContent(`<center><img src='images/icons/Mercenary Review Board.png', width = 96, height = 96</img>
+    	<p><h1>Greetings! </h1>
+    	<p><b>Welcome to the websites!
+    	<p>If you would like to report a bug, request a feature, assist with adding to the map or simply share your thoughts, please head on over to my github where you can find my threads and directly submit your edits for my consideration via the link below!
+    	<p><b><a href="https://github.com/Napalm1473/Battletech-2018-Interactive-Map">Github Repository, readme and my threads for your comments</a></center>`)
+    .openOn(map);
+
+
+
+// system markers
 
 var pop_Addasar = L.responsivePopup().setContent(`<h1>Addasar <img src='images/icons/Magistracy Of Canopus.png', width = 40, height = 40</img></h1>
     <p><b>Description:</b> On Addasar, glaciers have carved out beautiful fjords in the tropics and a Magistracy settlement perches in the peaks, where they mine some of the rarest gemstones in the Periphery.
@@ -2620,7 +2651,8 @@ var pop_Addasar = L.responsivePopup().setContent(`<h1>Addasar <img src='images/i
     .bindPopup(pop_Zathras).addTo(map);
 
 // layer groups
-var lg_all = L.layerGroup([sys_Addasar, sys_Adrar, sys_Aea_F, sys_Ahlat, sys_Alamagordo, sys_Alexandria, sys_Alloway, sys_Andarmax, sys_Antias, sys_Appian, sys_Aquagea, sys_Argos, sys_Arn, sys_Artru_F, sys_Athna, sys_AtreusPrime, sys_Balawat, sys_Barras, sys_Bellatrix, sys_Bellerophon, sys_Bergtatt, sys_Bonavista, sys_Borden, sys_Bringdam_F, sys_Brinton, sys_Brisbane, sys_Brixtana, sys_Brockway, sys_Bromhead, sys_Burton, sys_Calseraigne, sys_Camadeirre, sys_Carmichael, sys_Carthage, sys_Cassilda, sys_CatesHold, sys_Cavalor, sys_Chandan, sys_Chennai, sys_Claybrooke, sys_CluffsStand, sys_Corodiz, sys_Coromodir_F, sys_Cursa, sys_Cygnus, sys_DainmarMajoris, sys_DesolatePlains, sys_Detroit, sys_Drozan, sys_Dunianshire, sys_EarlyDawn, sys_Egress, sys_Enkra_F, sys_Espia, sys_Fagerholm, sys_Fjaldr_F, sys_FlannagansNebulea, sys_Flaum, sys_Fronc, sys_Gangtok_F, sys_Gaucin, sys_Ghorepani, sys_Girondas, sys_Guldra_F, sys_Gunthar, sys_Hastur, sys_Heliat_F, sys_Hellespont, sys_Herotitus, sys_Hibuarius, sys_Horsham, sys_Hurik, sys_Ichlangis_F, sys_Illiushin, sys_Independence, sys_Ishtar, sys_Itica, sys_Itrom_F, sys_Itsbur, sys_Jacomarle, sys_Jamestown, sys_JansensHold, sys_Joppa, sys_Katinka_F, sys_Kazu, sys_Kern, sys_Kimi, sys_Kurvasa, sys_Laconis, sys_Landmark, sys_Larsha, sys_Lindsay, sys_Linhauiguan, sys_LiusMemory, sys_Lyreton, sys_MacLeodsLand, sys_Maldive, sys_Mandalas, sys_Mangzhangdian_F, sys_Mantharaka, sys_Mattisskogen, sys_McevansSacrifice, sys_Mechdur_F, sys_Merdal, sys_Merlin, sys_Midale, sys_Midthun, sys_Mithron, sys_Muridox, sys_Murris, sys_Mystras, sys_Naryn, sys_NewAbilene, sys_NewGanymede, sys_NewRoland, sys_NewVallis, sys_NewVandenburg, sys_Niomede, sys_NonDiz, sys_Paf, sys_Panzyr_F, sys_Payia, sys_Peratallada, sys_Pilpala, sys_Pinard, sys_Piriapolis, sys_Pojos, sys_Portland, sys_Principia, sys_Pyrrhus, sys_Qalzi_F, sys_Quimberton, sys_RegisRoost_F, sys_Renfield, sys_Renown, sys_Repulse, sys_Rockwellawan, sys_Rollis, sys_RyansFate_F, sys_Sacromonte, sys_Salardion, sys_Samantha, sys_Sax, sys_Segerica, sys_Smithon_F, sys_Spencer, sys_Spitz, sys_Sunnywood, sys_Tarragona, sys_Taurus, sys_Thurrock, sys_Tincalunas, sys_Tiverton, sys_Turin, sys_Tyrlon_F, sys_Umgard_F, sys_Untran, sys_UrCruinne, sys_Valdives, sys_Vard, sys_Victoria, sys_Villanueva, sys_Viribium, sys_Ward, sys_Weldry_F, sys_WyethsGlory, sys_Yuris, sys_Zangul_F, sys_Zanzibar, sys_Zathras]);
+var lg_welcome = L.layerGroup([sys_welcome]);
+	lg_all = L.layerGroup([sys_Addasar, sys_Adrar, sys_Aea_F, sys_Ahlat, sys_Alamagordo, sys_Alexandria, sys_Alloway, sys_Andarmax, sys_Antias, sys_Appian, sys_Aquagea, sys_Argos, sys_Arn, sys_Artru_F, sys_Athna, sys_AtreusPrime, sys_Balawat, sys_Barras, sys_Bellatrix, sys_Bellerophon, sys_Bergtatt, sys_Bonavista, sys_Borden, sys_Bringdam_F, sys_Brinton, sys_Brisbane, sys_Brixtana, sys_Brockway, sys_Bromhead, sys_Burton, sys_Calseraigne, sys_Camadeirre, sys_Carmichael, sys_Carthage, sys_Cassilda, sys_CatesHold, sys_Cavalor, sys_Chandan, sys_Chennai, sys_Claybrooke, sys_CluffsStand, sys_Corodiz, sys_Coromodir_F, sys_Cursa, sys_Cygnus, sys_DainmarMajoris, sys_DesolatePlains, sys_Detroit, sys_Drozan, sys_Dunianshire, sys_EarlyDawn, sys_Egress, sys_Enkra_F, sys_Espia, sys_Fagerholm, sys_Fjaldr_F, sys_FlannagansNebulea, sys_Flaum, sys_Fronc, sys_Gangtok_F, sys_Gaucin, sys_Ghorepani, sys_Girondas, sys_Guldra_F, sys_Gunthar, sys_Hastur, sys_Heliat_F, sys_Hellespont, sys_Herotitus, sys_Hibuarius, sys_Horsham, sys_Hurik, sys_Ichlangis_F, sys_Illiushin, sys_Independence, sys_Ishtar, sys_Itica, sys_Itrom_F, sys_Itsbur, sys_Jacomarle, sys_Jamestown, sys_JansensHold, sys_Joppa, sys_Katinka_F, sys_Kazu, sys_Kern, sys_Kimi, sys_Kurvasa, sys_Laconis, sys_Landmark, sys_Larsha, sys_Lindsay, sys_Linhauiguan, sys_LiusMemory, sys_Lyreton, sys_MacLeodsLand, sys_Maldive, sys_Mandalas, sys_Mangzhangdian_F, sys_Mantharaka, sys_Mattisskogen, sys_McevansSacrifice, sys_Mechdur_F, sys_Merdal, sys_Merlin, sys_Midale, sys_Midthun, sys_Mithron, sys_Muridox, sys_Murris, sys_Mystras, sys_Naryn, sys_NewAbilene, sys_NewGanymede, sys_NewRoland, sys_NewVallis, sys_NewVandenburg, sys_Niomede, sys_NonDiz, sys_Paf, sys_Panzyr_F, sys_Payia, sys_Peratallada, sys_Pilpala, sys_Pinard, sys_Piriapolis, sys_Pojos, sys_Portland, sys_Principia, sys_Pyrrhus, sys_Qalzi_F, sys_Quimberton, sys_RegisRoost_F, sys_Renfield, sys_Renown, sys_Repulse, sys_Rockwellawan, sys_Rollis, sys_RyansFate_F, sys_Sacromonte, sys_Salardion, sys_Samantha, sys_Sax, sys_Segerica, sys_Smithon_F, sys_Spencer, sys_Spitz, sys_Sunnywood, sys_Tarragona, sys_Taurus, sys_Thurrock, sys_Tincalunas, sys_Tiverton, sys_Turin, sys_Tyrlon_F, sys_Umgard_F, sys_Untran, sys_UrCruinne, sys_Valdives, sys_Vard, sys_Victoria, sys_Villanueva, sys_Viribium, sys_Ward, sys_Weldry_F, sys_WyethsGlory, sys_Yuris, sys_Zangul_F, sys_Zanzibar, sys_Zathras]);
 	lg_largeweps = L.layerGroup([sys_Itrom_F, sys_Mechdur_F, sys_Laconis, sys_Burton, sys_Claybrooke, sys_Illiushin, sys_CluffsStand]);
 	lg_smallweps = L.layerGroup([sys_Sax, sys_Niomede, sys_Drozan, sys_NewRoland]);
 	lg_equipment = L.layerGroup([sys_Yuris, sys_Hurik, sys_Victoria, sys_NewVandenburg]);
@@ -2631,6 +2663,7 @@ var lg_all = L.layerGroup([sys_Addasar, sys_Adrar, sys_Aea_F, sys_Ahlat, sys_Ala
 	lg_research = L.layerGroup([sys_Appian, sys_Barras, sys_Brinton, sys_Chandan, sys_Coromodir_F, sys_Drozan, sys_Dunianshire, sys_Egress, sys_Gaucin, sys_Guldra_F, sys_Hurik, sys_JansensHold, sys_Landmark, sys_Larsha, sys_Lyreton, sys_NewGanymede, sys_NewRoland, sys_NewVandenburg, sys_Niomede, sys_Pilpala, sys_Pojos, sys_Principia, sys_Quimberton, sys_Sax, sys_Taurus, sys_Thurrock, sys_Vard, sys_Victoria, sys_Yuris]);
 	lg_starleague = L.layerGroup([sys_Andarmax, sys_Bellatrix, sys_Brisbane, sys_Brixtana, sys_CatesHold, sys_Cavalor, sys_Claybrooke, sys_Dunianshire, sys_Hurik, sys_Illiushin, sys_Jamestown, sys_Joppa, sys_Kimi, sys_Midale, sys_NewRoland, sys_NewVandenburg, sys_Niomede, sys_Piriapolis, sys_Repulse, sys_Smithon_F, sys_Victoria, sys_Yuris, sys_Zathras]);
 	lg_hub = L.layerGroup([sys_Barras, sys_Bellatrix, sys_Bergtatt, sys_Borden, sys_Bringdam_F, sys_Burton, sys_Egress, sys_Hellespont, sys_Herotitus, sys_Hurik, sys_Ichlangis_F, sys_Joppa, sys_Mantharaka, sys_Mechdur_F, sys_Panzyr_F, sys_Principia, sys_Rollis, sys_Sacromonte, sys_Salardion, sys_Taurus, sys_Ward, sys_Weldry_F, sys_Zangul_F]);
+	
 
 var filters = {
 	"ALL the things!" : lg_all,
@@ -2643,7 +2676,8 @@ var filters = {
 	"Mining" : lg_mining,
 	"SLDF" : lg_starleague,
 	"Manufacturing" : lg_manufacturing,
-	"Travel Hub" : lg_hub
+	"Travel Hub" : lg_hub,
+	"Welcome Message" : lg_welcome
 }
 
 // layer control
