@@ -1,6 +1,6 @@
 # Battletech-2018-Interactive-Map
 
-View the map live at battletechmap.com
+View the map live at www.battletechmap.com
 
 
 Feel free to submit edits for my consideration.
