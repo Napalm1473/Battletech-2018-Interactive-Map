@@ -20,6 +20,7 @@ https://pastebin.com/X3X1BzTV
 Powershell JSON Wildcard Search Tool by Matalus
 Search for anything you want within the JSONs!
 https://pastebin.com/bDNpHX2T
+Thread:
 https://steamcommunity.com/app/637090/discussions/0/1698300679758135965/
 
 
