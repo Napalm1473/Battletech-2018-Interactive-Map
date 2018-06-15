@@ -1,0 +1,21 @@
+<div class="top-bar">
+  <div class="float-right" style="padding: 0.5rem 1rem 0.5rem 0;" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+    <button class="menu-icon dark" type="button" data-toggle></button>
+  </div> 
+  <div class="top-bar-title">
+    <strong>Leaflet Responsive Popup</strong>
+  </div>
+  <div id="responsive-menu">
+    <div class="top-bar-right">
+      <!-- not for small -->
+      <ul class="show-for-medium dropdown menu" data-dropdown-menu>
+        {% include _main_menu.html %}
+      </ul>
+      <!-- for small -->
+      <ul class="hide-for-medium vertical menu" data-drilldown>
+        {% include _main_menu.html %}
+      </ul>
+    </div>
+  </div>
+</div>
+
